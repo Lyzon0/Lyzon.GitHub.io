@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="bg-dark text-white text-center p-4">
+        Proxy Website
+    </header>
+
+    <!-- Proxy Form -->
+    <section id="proxy" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h2>Enter URL to Proxy</h2>
+                <form id="proxyForm">
+                    <div class="form-group">
+                        <label for="url">URL:</label>
+                        <input type="text" class="form-control" id="url" placeholder="https://www.example.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Proxy</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proxy Result -->
+    <section id="proxyResult" class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2>Proxy Result</h2>
+                <iframe id="resultFrame" class="w-100" height="500"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#proxyForm').submit(function(e) {
+                e.preventDefault();
+                var url = $('#url').val();
+                $('#resultFrame').attr('src', url);
+            });
+        });
+    </script>
+</body>
+</html>
